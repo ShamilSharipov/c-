@@ -1,0 +1,306 @@
+#include <iostream>
+
+using std::cout;
+using std::endl;
+//using namespace std;
+using std::string;
+using std::to_string;
+
+// class Base {
+// private:
+//   int x_;
+//   int y_;
+// public:
+//   int a = 0;
+//   void f() {
+//       cout <<"func base" << endl;
+//   }
+
+//   Base(int x, int y) {
+//     this->x_ = x;
+//     this->y_ = y;
+//   }
+//   friend void ChangeX(Base &value);
+
+//   void Print() {
+//     cout <<this->x_<<"\n"<<this->y_<<endl;
+//   }
+// };
+
+// void ChangeX(Base &value) {
+//   value.x_ = 1;
+// }
+
+// class Image {
+// public:
+//   void GetImageInfo() {
+//     for (int i = 0; i < Len; i++) {
+//       cout<< pixels[i].GetInfo()<<endl;
+//     }
+//   }
+
+// private:
+//   class Pixel {
+//   public:
+//     Pixel(int r, int g, int b) {
+//       this->r = r;
+//       this->g = g;
+//       this->b = b;
+//     }
+
+//     string GetInfo() {
+//       return "Pixel: r="+ to_string(r) + "g="+ to_string(g) +"b="+ to_string(b);
+//     }
+//     private:
+//     int r;
+//     int g;
+//     int b;
+//   };
+//   static const int Len = 5;
+//   Pixel pixels[Len] {
+//     Pixel(0,4,64),
+//     Pixel(4,14,10),
+//     Pixel(111,4,24),
+//     Pixel(244,244,14),
+//     Pixel(111,179,64),
+//   };
+// };
+// class Derived: public Base {
+// public:
+//   int b = 1;
+//   void f() {
+//       cout <<"func derived" << endl;
+//   }
+// };
+
+
+// class Cap {
+//   public:
+//    string GetColor() {
+//      return color;
+//    }
+//   private:
+//     string color = "red";
+// };
+
+// class Human {
+//   public:
+//   void Think() {
+//     brain.Think();
+//   }
+
+//   void Inspect() {
+//     cout<<"my cap is "<<cap.GetColor()<< endl;
+//   }
+//   private:
+//   class Brain {
+//     public:
+//       void Think() {
+//         cout<<"i think"<<endl;
+//       }
+  
+
+//   };
+//   Brain brain;
+//   Cap cap;
+// };
+
+// class Weapon {
+// public:
+//   virtual void Shoot() = 0;
+//   void Foo() {
+//     cout<< "Foo()"<<endl;
+//   }
+// };
+
+// class Gun : public Weapon {
+//   public:
+//   virtual void Shoot() override {
+//     cout<<"BANG!"<<endl;
+//   }
+// };
+
+// class SubmachGun :public Gun {
+// public:
+// void Shoot() override {
+//   cout<<"bangbangbang"<<endl;
+// }
+
+// };
+
+// class Bazooka :public Weapon {
+// public:
+// void Shoot() override {
+//   cout<<"BADABUM!!"<<endl;
+// }
+
+// };
+
+// class Knife : public Weapon {
+// public:
+//   void Shoot() override {
+//     cout<<"VJUH!"<<endl;
+//   }
+// };
+
+// class Player {
+//   public:
+//     void Shoot(Weapon *weapon) {
+//       weapon->Shoot();
+//     }
+// };
+
+// class A {
+// private:
+//   /* data */
+// public:
+
+//   A() {
+//     cout << "выделена динамическая память класса А"<< endl;
+//   }
+//   virtual ~A() = 0;
+// };
+
+// A::~A() {};
+
+// class B: public A {
+// private:
+//   /* data */
+// public:
+//   B() {
+//     cout << "выделена динамическая память класса B"<< endl;
+//   }
+//   ~B() override {
+//     cout << "освобождена динамическая память класса B"<< endl;
+//   }
+// };
+
+// class Human {
+// private:
+//   /* data */
+// public:
+
+
+//   string Name;
+//   int Age;
+//   int Weight;
+
+//   Human(string Name) {
+//     this->Name = Name + "!";
+//     this->Age = 0;
+//     this->Weight = 0;
+
+//   }
+
+//   Human(string Name, int Age):Human(Name) {
+//     this->Age = Age;
+//   }
+
+//   Human(string Name, int Age, int Weight):Human(Name, Age) {
+//     this->Weight = Weight;
+//   }
+
+//   ~Human();
+// };
+
+// class Msg {
+// public:
+//   Msg(string msg) {
+//     this->msg = msg;
+//   }
+
+//   virtual string GetMsg() {
+//     return msg;
+//   }
+
+// private:
+//   string msg;
+// };
+
+// class Printer {
+//   public:
+//   void Print(Msg *msg) {
+//     cout<< msg->GetMsg()<<endl;
+//   }
+// };
+
+// class BraketMsg: public Msg {
+// public:
+//   BraketMsg(string msg):Msg(msg) {
+//   }
+//   string GetMsg() override {
+//     return "[" + ::Msg::GetMsg() + "]";
+//   }
+// };
+
+class Car { 
+private:
+  /* data */
+public:
+ void Use() {
+   cout<<"i'm drive"<<endl;
+ }
+ Car() {
+   cout<<"вызван конструктор драйв"<<endl;
+ }
+};
+
+class Airplain {
+public:
+  void Use() {
+    cout<<"i'm fly"<<endl;
+  }
+  Airplain() {
+    cout<<"вызван конструктор эир"<<endl;
+  }
+};
+
+class FlyingCar: public Car, public Airplain {
+public:
+FlyingCar () {
+  cout<<"вызван конструктор летающей машины"<<endl;
+}
+};
+
+
+
+
+int main () {
+  // Derived d;
+  // Base b;
+  // b = d;
+  //Derived& b1 = d;
+  // Base b1(5, 12);
+  // b1.Print();
+  // ChangeX(b1);
+  // b1.Print();
+  //Image img;
+  //img.GetImageInfo();
+  // Human human;
+  // human.Think();
+  // human.Inspect();
+  // Gun gun;
+  // SubmachGun machinegun;
+  // Bazooka bazuka;
+  // Knife knife;
+  // knife.Foo();
+  //Gun *weapon = &machinegun;
+  //weapon->Shoot();
+  //gun.Shoot();
+  //Player player;
+  //player.Shoot(&knife);
+  //A *bptr = new B;
+  //delete bptr;
+  //Human h("Аристарх", 30, 70);
+  //Msg m("hello");
+  // BraketMsg m("hello");
+  // Printer p;
+  // p.Print(&m);
+  FlyingCar fc;
+  ((Car)fc).Use();
+  cout<<endl;
+  ((Airplain)fc).Use();
+  //fc.Drive();
+  //fc.Fly();
+  return 0;
+}
